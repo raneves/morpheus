@@ -1,0 +1,7 @@
+
+DiretorioArquivoJava:C:\teste\Java;
+Lista:true;
+DiretorioScreenShot:D:\fotos coverage;
+DiretorioGeckodriver:D:\Romulo\mestrado UTFPR\geckodriver\geckodriver.exe;
+DiretorioXHTML:D:\Romulo\workspace eclipse oxygen\helpDesk\src\main\webapp\paginas\helpdesk;
+URL:http://localhost:8080/helpDesk/paginas/helpdesk/;

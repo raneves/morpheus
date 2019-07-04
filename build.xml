@@ -1,0 +1,70 @@
+<?xml version = "1.0" encoding="UTF-8"?>
+<!--  =================================================== -->
+<!--   É necessário configurar o eclipse                          --> 
+<!--   Window - Preferences - Ant - Runtime                       --> 
+<!--   Selecionar Ant Home Entries - Add External Jars            -->
+<!--   necessário adicionar o jar jsch-0.1.35.jar. ,             -->
+<!--   este jar esta na lib do projeto celera                      -->
+<!--  Por último deve-se criar o arquivo myKeyStore.               -->
+<!--  ===================================================  -->
+
+<!--  =================================================== 											-->
+<!-- 				para gerar o arquivo myKeyStore															-->
+<!--   1 - Exceute na linha de comando (shell) o seguinte comando												-->
+<!--       keytool -genkey -keystore /home/romulo.neves/myKeyStore2 -alias exactus -storepass celera2					-->
+<!--   2- informe o primeiro nome: Exactus																	-->
+<!--   3- informe a organizacao: Exactus																		-->
+<!--   4- informe o nome da sua organizacao: Exactus															-->
+<!--   5- informe a cidade: Londrina																			-->
+<!--   6- informe o estado: Parana																			-->
+<!--   7- infomrme a sigla: BR																				-->
+<!--   8- Digite: yes																						-->
+<!--   9- enter.																								-->
+
+
+<project default="1.Deletar Jar morpheus">	
+	
+
+	<!-- Configuração Pessoal -->	
+	<property  
+		name = "morpheus" 
+		value = "D:\Romulo\workspace eclipse oxygen\morpheus"
+	/>	
+	<property  
+			name = "diretorio.jar.ozonio" 		    
+			value = "D:\Romulo\mestrado UTFPR\Registro de Software\executavel"
+	/>
+	<!-- Fim -->	
+	<target name="1.Deletar Jar morpheus">		
+		<delete 
+			file="${diretorio.jar.ozonio}\morpheus.jar"
+			taskname="Deletando morpheus.jar" />		
+	</target>
+		
+	<target name="2 - Gerando - morpheus.Jar" description="Gerar o jar do morpheus">
+		<jar destfile="${diretorio.jar.ozonio}\morpheus.jar"
+			basedir="${morpheus}\bin" taskname="Gerando o jar da morpheus">
+			<manifest>
+				<attribute 
+					name="Main-Class" 
+					value="br.edu.utfpr.FramePrincipal"/> 
+				
+				<attribute 
+							name="Application-Name" 
+							value="morpheus"/>
+				<attribute 
+							name="Permissions" 
+							value="all-permissions"/>
+				<attribute 
+							name="Codebase" 
+							value="*"/>
+				
+				<attribute 
+					name="Class-Path" 
+					value="
+					lib\dom4j.jar"
+				/> 
+			</manifest>			
+		</jar>
+	</target>	
+</project>
